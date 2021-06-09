@@ -1,0 +1,62 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "./node_modules/gts",
+    "react-app",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:react-hooks/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": ["react"],
+  "rules": {
+    "no-console": "warn",
+    "no-self-assign": "warn",
+    "react-hooks/exhaustive-deps": "off",
+    "strict": ["error", "global"],
+    "no-useless-escape": "off",
+    "react/display-name": "off",
+    "react/no-children-prop": "off",
+    "react/prop-types": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "no-return-await": "error",
+    "no-extra-label": "error",
+    "no-floating-decimal": "error",
+    "no-param-reassign": "error",
+    "no-duplicate-imports": "error",
+    "prefer-arrow-callback": "error",
+    "prefer-const": "error",
+    "prefer-template": "error",
+    "eqeqeq": "error",
+    "camelcase": "error",
+    "lines-between-class-members": "error",
+    "new-cap": ["error", { "capIsNew": false }],
+    "no-whitespace-before-property": "error",
+    "node/no-extraneous-import": "off",
+    "node/no-unpublished-import": "off",
+    "node/no-unsupported-features/node-builtins": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.ts?(x)"]
+    }
+  ]
+}

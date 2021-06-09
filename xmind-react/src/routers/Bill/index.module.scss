@@ -1,0 +1,69 @@
+.container {
+  height: 600px;
+  width: 375px;
+  border: 1px solid #ededed;
+  border-radius: 8px;
+  position: relative;
+  padding-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+
+  .date {
+    margin: 24px;
+  }
+
+  .list {
+    overflow-y: scroll;
+    flex: 1;
+  }
+
+  .category {
+    display: flex;
+    padding: 12px 24px;
+    justify-content: space-between;
+    background: #f9f9f9;
+
+    h4,
+    p {
+      margin: 0;
+    }
+  }
+
+  .order {
+    padding-left: 24px;
+    padding-right: 24px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .footer {
+    height: 48px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    background: #f0f0f0;
+
+    .add {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  :global {
+    .ant-list-header {
+      padding: 0;
+    }
+  }
+}
+
+.modal {
+  .btns {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
