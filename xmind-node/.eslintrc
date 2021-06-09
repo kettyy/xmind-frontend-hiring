@@ -1,0 +1,12 @@
+{
+  "extends": ["eslint-config-egg", "prettier", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "sourceType": "module"
+  },
+  "overrides": [
+    {
+      "files": ["app/**/*.ts"]
+    }
+  ]
+}
