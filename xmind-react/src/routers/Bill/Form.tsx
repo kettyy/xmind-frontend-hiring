@@ -37,7 +37,7 @@ export default inject("billStore")(
           rules={[{ required: true, message: "请填写金额" }]}>
           <InputNumber
             formatter={(value) =>
-              `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+              `¥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
             }
             parser={(value) => value?.replace(/\$\s?|(,*)/g, "") || ""}
             precision={2}
