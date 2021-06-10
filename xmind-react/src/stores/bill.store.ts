@@ -100,32 +100,32 @@ export class BillStore implements BillStoreInterface {
     }));
   }
 
-  @action getBills = () => {
+  @action getBills = async () => {
     this.loading = true;
     this.isError = false;
 
-    axios
-      .all([axios.get("/orders"), axios.get("/categories")])
-      .then(
-        axios.spread(
-          ({ data: { list: orders } }, { data: { list: categories } }) => {
-            runInAction(() => {
-              this.orders = orders;
-              this.categories = categories;
-            });
-          },
-        ),
-      )
-      .catch(() => {
-        runInAction(() => {
-          this.isError = true;
-        });
-      })
-      .finally(() => {
-        runInAction(() => {
-          this.loading = false;
-        });
+    try {
+      const {
+        data: { list: orders },
+      } = await axios.get("/orders");
+
+      const {
+        data: { list: categories },
+      } = await axios.get("/categories");
+
+      runInAction(() => {
+        this.orders = orders;
+        this.categories = categories;
       });
+    } catch {
+      runInAction(() => {
+        this.isError = true;
+      });
+    } finally {
+      runInAction(() => {
+        this.loading = false;
+      });
+    }
   };
 
   @action creatOrder = (order: OrderFormOptions) => {

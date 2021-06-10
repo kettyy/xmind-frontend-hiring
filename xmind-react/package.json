@@ -17,7 +17,8 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test",
+    "test": "craco test --env=jest-environment-jsdom-sixteen",
+    "test:coverage": "craco test --env=jest-environment-jsdom-sixteen --coverage --watchAll=false",
     "eject": "craco eject",
     "format": "prettier --write .",
     "lint": "eslint --ext .ts --ext .tsx src"
@@ -56,19 +57,49 @@
     "@types/react-dom": "16.9.0",
     "@types/react-loadable": "^5.5.5",
     "@types/react-router-dom": "5.1.7",
-    "react-scripts": "3.4.0",
     "craco-antd": "^1.19.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gts": "^3.1.0",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
     "less": "^4.1.1",
     "less-loader": "^9.0.0",
     "pre-commit": "^1.2.2",
     "prettier": "^2.3.1",
+    "react-scripts": "3.4.0",
     "sass": "^1.34.1",
     "typescript": "^3.8.3"
   },
-  "proxy": "http://127.0.0.1:7001"
+  "proxy": "http://127.0.0.1:7001",
+  "jest": {
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    },
+    "coveragePathIgnorePatterns": [
+      "/src/serviceWorker.ts",
+      "/src/reportWebVitals.ts",
+      "/src/App.tsx",
+      "/src/index.tsx",
+      "/src/config/",
+      "/src/history/",
+      "/src/interfaces/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    },
+    "coverageReporters": [
+      "text-summary",
+      "json-summary",
+      "lcov",
+      "html",
+      "clover"
+    ]
+  }
 }

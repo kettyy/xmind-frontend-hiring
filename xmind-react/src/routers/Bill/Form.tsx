@@ -11,7 +11,7 @@ const layout = {
 
 export default inject("billStore")(
   observer(({ billStore }: BillFormProps) => {
-    const { categoryOptions, creatOrder } = billStore!;
+    const { categoryOptions, creatOrder, submitting } = billStore!;
 
     return (
       <Form {...layout} validateTrigger="onBlur" onFinish={creatOrder}>
@@ -47,7 +47,11 @@ export default inject("billStore")(
 
         <div className={styles.btns}>
           <Button htmlType="reset">重置</Button>
-          <Button type="primary" htmlType="submit" style={{ marginLeft: 24 }}>
+          <Button
+            type="primary"
+            htmlType="submit"
+            style={{ marginLeft: 24 }}
+            loading={submitting}>
             提交
           </Button>
         </div>

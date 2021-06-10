@@ -138,7 +138,7 @@ export interface BillStoreInterface {
    * @author wangxin
    * @memberof BillStoreInterface
    */
-  getBills(): void;
+  getBills(): Promise<void>;
 
   /**
    * 创建订单

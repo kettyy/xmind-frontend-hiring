@@ -50,7 +50,7 @@ export default inject("billStore")(
               <Tooltip title="创建账单">
                 <Button
                   shape="circle"
-                  icon={<PlusOutlined translate />}
+                  icon={<PlusOutlined translate="true" />}
                   onClick={setModalVisible}
                 />
               </Tooltip>
