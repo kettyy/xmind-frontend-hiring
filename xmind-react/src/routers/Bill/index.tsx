@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { BillProps } from "@/interfaces/routers/bill.router.interface";
 import { inject, observer } from "mobx-react";
 import CategoryOrders from "./CategoryOrders";
-import { Button, DatePicker, Modal } from "antd";
+import { Button, DatePicker, Modal, Tooltip } from "antd";
 import styles from "./index.module.scss";
 import { PlusOutlined } from "@ant-design/icons";
 import Form from "./Form";
+import LoadSkeleton from "@/components/LoadSkeleton";
+import ListSkeleton from "./ListSkeleton";
 
 export default inject("billStore")(
   observer(({ billStore }: BillProps) => {
@@ -17,6 +19,8 @@ export default inject("billStore")(
       outlayTotal,
       setModalVisible,
       modalVisible,
+      loading,
+      isError,
     } = billStore;
 
     useEffect(() => {
@@ -32,9 +36,14 @@ export default inject("billStore")(
             picker="month"
           />
           <div className={styles.list}>
-            {bills.map((bill) => (
-              <CategoryOrders key={bill.id} bill={bill} />
-            ))}
+            <LoadSkeleton
+              loading={loading}
+              error={{ isError, onAgain: getBills }}
+              component={<ListSkeleton />}>
+              {bills.map((bill) => (
+                <CategoryOrders key={bill.id} bill={bill} />
+              ))}
+            </LoadSkeleton>
           </div>
 
           <div className={styles.footer}>

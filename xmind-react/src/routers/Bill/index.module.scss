@@ -22,11 +22,6 @@
     padding: 12px 24px;
     justify-content: space-between;
     background: #f9f9f9;
-
-    h4,
-    p {
-      margin: 0;
-    }
   }
 
   .order {
@@ -53,6 +48,11 @@
     }
   }
 
+  h4,
+  p {
+    margin: 0;
+  }
+
   :global {
     .ant-list-header {
       padding: 0;
@@ -65,5 +65,15 @@
     display: flex;
     width: 100%;
     justify-content: flex-end;
+  }
+}
+
+.skeleton {
+  padding: 0 24px;
+
+  :global {
+    .ant-skeleton-title {
+      width: 150px !important;
+    }
   }
 }
