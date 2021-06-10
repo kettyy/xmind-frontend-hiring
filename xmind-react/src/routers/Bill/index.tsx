@@ -41,11 +41,13 @@ export default inject("billStore")(
             <span style={{ marginRight: 16 }}>{`收入: ¥${incomeTotal}`}</span>
             <span>{`支出: ¥${outlayTotal}`}</span>
             <div className={styles.add}>
-              <Button
-                shape="circle"
-                icon={<PlusOutlined translate />}
-                onClick={setModalVisible}
-              />
+              <Tooltip title="创建账单">
+                <Button
+                  shape="circle"
+                  icon={<PlusOutlined translate />}
+                  onClick={setModalVisible}
+                />
+              </Tooltip>
             </div>
           </div>
         </div>
