@@ -3,6 +3,11 @@ import { inject, observer } from "mobx-react";
 import React from "react";
 import { BillFormProps } from "@/interfaces/routers/bill.router.interface";
 import styles from "./index.module.scss";
+import {
+  filterOption,
+  inputNumberCurrencyFormatter,
+  inputNumberParser,
+} from "@/util/methods.util";
 
 const layout = {
   labelCol: { span: 4 },
@@ -23,10 +28,7 @@ export default inject("billStore")(
             placeholder="分类"
             showSearch
             optionFilterProp="children"
-            filterOption={(inputValue, option: any) =>
-              option.children.toLowerCase().indexOf(inputValue.toLowerCase()) >=
-              0
-            }
+            filterOption={filterOption}
             options={categoryOptions}
           />
         </Form.Item>
@@ -36,10 +38,8 @@ export default inject("billStore")(
           name="amount"
           rules={[{ required: true, message: "请填写金额" }]}>
           <InputNumber
-            formatter={(value) =>
-              `¥ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-            }
-            parser={(value) => value?.replace(/\$\s?|(,*)/g, "") || ""}
+            formatter={inputNumberCurrencyFormatter("¥")}
+            parser={inputNumberParser}
             precision={2}
             style={{ width: "100%" }}
           />

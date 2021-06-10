@@ -23,6 +23,11 @@ export interface Category {
   type: 0 | 1;
 }
 
+export interface SelectOption {
+  value: string;
+  label: string;
+}
+
 export interface BillStoreInterface {
   /**
    * 数据加载状态
@@ -130,7 +135,13 @@ export interface BillStoreInterface {
     }
   >;
 
-  categoryOptions: Array<{ value: string; label: string }>;
+  /**
+   * 分类下拉列表选项集合
+   *
+   * @type {Array<SelectOption>}
+   * @memberof BillStoreInterface
+   */
+  categoryOptions: Array<SelectOption>;
 
   /**
    * 请求账单数据
