@@ -1,0 +1,19 @@
+.skeleton {
+  :global {
+    .ant-skeleton-element {
+      width: 100%;
+    }
+  }
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .again {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
