@@ -52,6 +52,7 @@ export default inject("billStore")(
                   shape="circle"
                   icon={<PlusOutlined translate="true" />}
                   onClick={setModalVisible}
+                  data-testid="show-create-bill-form"
                 />
               </Tooltip>
             </div>

@@ -19,7 +19,11 @@ export default inject("billStore")(
     const { categoryOptions, creatOrder, submitting } = billStore!;
 
     return (
-      <Form {...layout} validateTrigger="onBlur" onFinish={creatOrder}>
+      <Form
+        {...layout}
+        validateTrigger="onBlur"
+        onFinish={creatOrder}
+        data-testid="bill-form">
         <Form.Item
           label="分类"
           name="category"
