@@ -1,8 +1,4 @@
-import {
-  BillStoreInterface,
-  Category,
-  Order,
-} from "../stores/bill.store.interface";
+import { BillStoreInterface } from "../stores/bill.store.interface";
 
 export interface BillProps {
   billStore: BillStoreInterface;
@@ -13,8 +9,5 @@ export interface BillFormProps {
 }
 
 export interface BillCategoryOrdersProps {
-  bill: Category & {
-    orders: Order[];
-    totalAmount: string;
-  };
+  billStore?: BillStoreInterface;
 }

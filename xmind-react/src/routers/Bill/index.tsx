@@ -13,7 +13,6 @@ export default inject("billStore")(
   observer(({ billStore }: BillProps) => {
     const {
       getBills,
-      bills,
       setMonth,
       incomeTotal,
       outlayTotal,
@@ -40,9 +39,7 @@ export default inject("billStore")(
               loading={loading}
               error={{ isError, onAgain: getBills }}
               component={<ListSkeleton />}>
-              {bills.map((bill) => (
-                <CategoryOrders key={bill.id} bill={bill} />
-              ))}
+              <CategoryOrders />
             </LoadSkeleton>
           </div>
 
@@ -60,6 +57,7 @@ export default inject("billStore")(
             </div>
           </div>
         </div>
+
         <Modal
           destroyOnClose
           maskClosable={false}
