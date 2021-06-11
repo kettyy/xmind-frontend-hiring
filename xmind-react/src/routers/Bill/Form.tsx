@@ -6,13 +6,14 @@ import styles from "./index.module.scss";
 import {
   filterOption,
   inputNumberCurrencyFormatter,
-  inputNumberParser,
 } from "@/util/methods.util";
 
 const layout = {
   labelCol: { span: 4 },
   wrapperCol: { span: 20 },
 };
+
+const formatter = inputNumberCurrencyFormatter("¥");
 
 export default inject("billStore")(
   observer(({ billStore }: BillFormProps) => {
@@ -42,8 +43,7 @@ export default inject("billStore")(
           name="amount"
           rules={[{ required: true, message: "请填写金额" }]}>
           <InputNumber
-            formatter={inputNumberCurrencyFormatter("¥")}
-            parser={inputNumberParser}
+            formatter={formatter}
             precision={2}
             style={{ width: "100%" }}
           />

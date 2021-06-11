@@ -12,6 +12,3 @@ export const filterOption = (
 export const inputNumberCurrencyFormatter =
   (currency: string) => (value?: string) =>
     `${currency} ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
-export const inputNumberParser = (value?: string) =>
-  value?.replace(/\$\s?|(,*)/g, "") || "";
