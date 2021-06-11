@@ -1,13 +1,15 @@
-const Service = require("egg").Service;
-const uuidv4 = require("uuid").v4;
-const xlsx = require("xlsx");
-const fs = require("fs");
+'use strict';
+
+const Service = require('egg').Service;
+const uuidv4 = require('uuid').v4;
+const xlsx = require('xlsx');
+const fs = require('fs');
 
 class OrderService extends Service {
   async findAll() {
     await this.init();
 
-    const orders = await this.app.mysql.select("orders");
+    const orders = await this.app.mysql.select('orders');
 
     return { list: orders };
   }
@@ -23,21 +25,21 @@ class OrderService extends Service {
       body
     );
 
-    const result = await this.app.mysql.insert("orders", order);
+    const result = await this.app.mysql.insert('orders', order);
 
     return result.affectedRows === 1 ? order : null;
   }
 
   async init() {
-    const count = await this.app.mysql.count("orders");
+    const count = await this.app.mysql.count('orders');
 
     if (count !== 0) {
       return;
     }
 
     const workbook = xlsx.read(
-      fs.readFileSync("app/public/bill.csv", "utf-8"),
-      { type: "buffer" }
+      fs.readFileSync('app/public/bill.csv', 'utf-8'),
+      { type: 'buffer' }
     );
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
 

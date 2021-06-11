@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-const Controller = require("egg").Controller;
+const Controller = require('egg').Controller;
 
 class OrderController extends Controller {
   async index() {
@@ -17,7 +17,7 @@ class OrderController extends Controller {
 
     const order = await ctx.service.order.create(ctx.request.body);
 
-    ctx.body = order || { message: "create fail" };
+    ctx.body = order || { message: 'create fail' };
     ctx.status = order ? 201 : 500;
   }
 }

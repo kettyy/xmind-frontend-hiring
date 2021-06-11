@@ -1,25 +1,27 @@
-const Service = require("egg").Service;
-const xlsx = require("xlsx");
-const fs = require("fs");
+'use strict';
+
+const Service = require('egg').Service;
+const xlsx = require('xlsx');
+const fs = require('fs');
 
 class CategoryService extends Service {
   async find(where) {
     await this.init();
 
-    const categories = await this.app.mysql.select("categories", { where });
+    const categories = await this.app.mysql.select('categories', { where });
     return { list: categories };
   }
 
   async findAll() {
     await this.init();
 
-    const categories = await this.app.mysql.select("categories");
+    const categories = await this.app.mysql.select('categories');
     return { list: categories };
   }
 
   async create(body) {
     const result = await this.app.mysql.insert(
-      "categories",
+      'categories',
       Object.assign(body, {
         created_at: Date.now(),
         updated_at: Date.now(),
@@ -30,15 +32,15 @@ class CategoryService extends Service {
   }
 
   async init() {
-    const count = await this.app.mysql.count("categories");
+    const count = await this.app.mysql.count('categories');
 
     if (count !== 0) {
       return;
     }
 
     const workbook = xlsx.read(
-      fs.readFileSync("app/public/categories.csv", "utf-8"),
-      { type: "buffer" }
+      fs.readFileSync('app/public/categories.csv', 'utf-8'),
+      { type: 'buffer' }
     );
     const sheet = workbook.Sheets[workbook.SheetNames[0]];
 

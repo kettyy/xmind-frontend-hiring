@@ -1,7 +1,9 @@
-module.exports = (app) => {
+'use strict';
+
+module.exports = app => {
   const { STRING, INTEGER } = app.Sequelize;
 
-  const Category = app.model.define("category", {
+  const Category = app.model.define('category', {
     id: { type: STRING, primaryKey: true },
     type: INTEGER,
     name: STRING,

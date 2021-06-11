@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     const { INTEGER, STRING, DOUBLE } = Sequelize;
-    await queryInterface.createTable("orders", {
+    await queryInterface.createTable('orders', {
       id: STRING,
       type: INTEGER,
       time: STRING, // 因时间戳为大数字，防止精度丢失，以字符串形式保存
@@ -14,7 +14,7 @@ module.exports = {
     });
   },
 
-  down: async (queryInterface) => {
-    await queryInterface.dropTable("orders");
+  down: async queryInterface => {
+    await queryInterface.dropTable('orders');
   },
 };

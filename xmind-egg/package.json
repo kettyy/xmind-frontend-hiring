@@ -1,5 +1,5 @@
 {
-  "name": "xmind-node",
+  "name": "xmind-egg",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -31,8 +31,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-xmind-node",
-    "stop": "egg-scripts stop --title=egg-server-xmind-node",
+    "start": "egg-scripts start --daemon --title=egg-server-xmind-egg",
+    "stop": "egg-scripts stop --title=egg-server-xmind-egg",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
     "test": "yarn lint -- --fix && yarn test-local",
