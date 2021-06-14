@@ -1,4 +1,4 @@
-import { Controller } from "egg";
+import { Controller } from 'egg';
 
 export default class OrderController extends Controller {
   async index() {
@@ -15,7 +15,7 @@ export default class OrderController extends Controller {
 
     const order = await ctx.service.order.create(ctx.request.body);
 
-    ctx.body = order || { message: "create fail" };
+    ctx.body = order || { message: 'create fail' };
     ctx.status = order ? 201 : 500;
   }
 }

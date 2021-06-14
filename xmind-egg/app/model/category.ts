@@ -1,9 +1,9 @@
-"use strict";
 
-export default (app) => {
+
+export default app => {
   const { STRING, INTEGER } = app.Sequelize;
 
-  return app.model.define("category", {
+  return app.model.define('category', {
     id: { type: STRING, primaryKey: true },
     type: INTEGER,
     name: STRING,

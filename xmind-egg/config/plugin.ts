@@ -1,13 +1,13 @@
-import { EggPlugin } from "egg";
+import { EggPlugin } from 'egg';
 
 const plugin: EggPlugin = {
   sequelize: {
     enable: true,
-    package: "egg-sequelize",
+    package: 'egg-sequelize',
   },
   mysql: {
     enable: true,
-    package: "egg-mysql",
+    package: 'egg-mysql',
   },
 };
 
