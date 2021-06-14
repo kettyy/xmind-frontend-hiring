@@ -4,3 +4,9 @@
 $ yarn
 $ yarn dev
 ```
+
+## 测试
+
+```bash
+$ yarn test
+```

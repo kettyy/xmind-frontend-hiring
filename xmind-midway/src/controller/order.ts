@@ -31,8 +31,6 @@ export class OrderController {
   @Post('/orders')
   @HttpCode(201)
   async create(@Body(ALL) options: Partial<Order>): Promise<Partial<Order>> {
-    console.log(options);
-
     const order = await this.orderService.create(options);
 
     return order;

@@ -1,10 +1,8 @@
 import { createApp, close, createHttpRequest } from '@midwayjs/mock';
 import { Framework } from '@midwayjs/web';
 import { Application } from 'egg';
-import * as assert from 'assert';
 
-describe('test/controller/home.test.ts', () => {
-
+describe('test/controller/category.test.ts', () => {
   let app: Application;
 
   beforeAll(async () => {
@@ -16,17 +14,12 @@ describe('test/controller/home.test.ts', () => {
     await close(app);
   });
 
-  it('should GET /', async () => {
+  it('should GET /categories', async () => {
     // make request
-    const result = await createHttpRequest(app).get('/');
+    const result = await createHttpRequest(app).get('/categories');
 
     // use expect by jest
     expect(result.status).toBe(200);
-    expect(result.text).toBe('Hello Midwayjs!');
-
-    // or use assert
-    assert.deepStrictEqual(result.status, 200);
-    assert.deepStrictEqual(result.text, 'Hello Midwayjs!');
+    expect(Array.isArray(result.body.list)).toBe(true);
   });
-
 });
