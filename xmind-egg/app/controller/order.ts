@@ -1,8 +1,6 @@
-'use strict';
+import { Controller } from "egg";
 
-const Controller = require('egg').Controller;
-
-class OrderController extends Controller {
+export default class OrderController extends Controller {
   async index() {
     const { ctx } = this;
 
@@ -17,9 +15,7 @@ class OrderController extends Controller {
 
     const order = await ctx.service.order.create(ctx.request.body);
 
-    ctx.body = order || { message: 'create fail' };
+    ctx.body = order || { message: "create fail" };
     ctx.status = order ? 201 : 500;
   }
 }
-
-module.exports = OrderController;
