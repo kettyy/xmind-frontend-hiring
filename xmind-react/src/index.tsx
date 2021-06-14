@@ -7,6 +7,7 @@ import history from "@/history";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "mobx-react";
 import { Router } from "react-router";
+import "moment/locale/zh-cn";
 
 ReactDOM.render(
   <Provider {...new RootStore()}>
