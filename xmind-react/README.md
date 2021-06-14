@@ -10,3 +10,9 @@ $ yarn start
 ```bash
 $ yarn test
 ```
+
+## 生成测试报告
+
+```bash
+$ yarn test:coverage
+```

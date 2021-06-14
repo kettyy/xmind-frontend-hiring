@@ -14,10 +14,10 @@
 
 - 前端部分
 
-  - [xmind-react](xmind-react/README.md)
+  - [xmind-react](xmind-react)
 
 - 后端部分（二选一）
 
-  - [xmind-egg](xmind-egg/README.md)
+  - [xmind-egg](xmind-egg)
 
-  - [xmind-midway](xmind-midway/README.md)
+  - [xmind-midway](xmind-midway)
